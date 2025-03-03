@@ -3,14 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Play MP3</title>
+    <title>Ceilbleep WebUI - DE4DDNE3 made, bro</title>
+    <style>
+        .block {
+            padding: 20px;
+            margin: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .block1 {
+            background-color: #170404;
+        }
+        .block2 {
+            background-color: #170404;
+        }
+        .block3 {
+            background-color: #170404;
+        }
+    </style>
 </head>
 <body>
-    <button onclick="playSound()">Play Sound</button>
+    <div class="block block1">
+        <h2>Block 1</h2>
+        <button onclick="playMusic()">Start Music</button>
+        <button onclick="stopMusic()">Stop Music</button>
+    </div>
+
+    <div class="block block2">
+        <h2>Block 2</h2>
+        <button onclick="playMusic()">Start Music</button>
+        <button onclick="stopMusic()">Stop Music</button>
+    </div>
+
+    <div class="block block3">
+        <h2>Block 3</h2>
+        <button onclick="playMusic()">Start Music</button>
+        <button onclick="stopMusic()">Stop Music</button>
+    </div>
 
     <script>
-        function playSound() {
-            fetch('/play-sound')
+        function playMusic() {
+            fetch('/play-music')
+                .then(response => response.text())
+                .then(data => console.log(data));
+        }
+
+        function stopMusic() {
+            fetch('/stop-music')
                 .then(response => response.text())
                 .then(data => console.log(data));
         }
